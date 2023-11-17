@@ -18,7 +18,7 @@ fetch("http://localhost:3000/produtos")
                 const edit = document.createElement("a")
                 edit.className = "edit"
                 edit.innerText = "editar"
-edit.href  = `./formulario.html?id=${produto.id}&desc=${produto.desc}&preco=${produto.preco}&qtd=${produto.qtd}`              
+                edit.href  = `./formulario.html?id=${produto.id}&desc=${produto.desc}&preco=${produto.preco}&qtd=${produto.qtd}`              
                 const del = document.createElement("button")
                 del.className = "delete"
                 del.innerText = "excluir"
