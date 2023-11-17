@@ -19,9 +19,21 @@ fetch("http://localhost:3000/produtos")
                 edit.className = "edit"
                 edit.innerText = "editar"
 edit.href  = `./formulario.html?id=${produto.id}&desc=${produto.desc}&preco=${produto.preco}&qtd=${produto.qtd}`              
-                const del = document.createElement("a")
+                const del = document.createElement("button")
                 del.className = "delete"
                 del.innerText = "excluir"
+                del.addEventListener("click",()=>{
+                    fetch(`http://192.168.1.48:3000/produtos/excluir/${produto.id}`,{
+                        method: 'DELETE',
+                        headers: {
+                            'Content-Type' : 'application/json'
+                        }
+                    }).then((resposta)=>{
+                        if(resposta.status != 200){
+                            console.log(resposta.json())
+                        }
+                    })
+                })
                 card.append(desc,preco,qtd,edit,del)
                 div.append(card)
             })
